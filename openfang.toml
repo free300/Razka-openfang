@@ -1,0 +1,32 @@
+# openfang.toml â€” Konfigurasi Razka/OpenFang
+
+[agent]
+name = "Razka"
+model = "llama-3.3-70b-versatile"
+provider = "groq"
+
+[server]
+host = "0.0.0.0"
+port = 4200
+
+[providers.groq]
+api_key = "${GROQ_API_KEY}"
+model = "llama-3.3-70b-versatile"
+
+[memory]
+backend = "sqlite"
+path = "/data/razka.db"
+
+[skills]
+path = "/root/.openfang/skills"
+
+[hands]
+enabled = true
+scheduler = true
+
+# Hand: Monitor SUI arbitrage
+[[hands.list]]
+name = "sui_monitor"
+description = "Monitor harga SUI dan peluang arbitrase"
+interval_minutes = 30
+enabled = true
