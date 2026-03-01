@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: razka-openfang
+    runtime: docker
+    dockerfilePath: ./Dockerfile.openfang
+    plan: free
+    healthCheckPath: /api/health
+    disk:
+      name: razka-data
+      mountPath: /data
+      sizeGB: 1
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false
+      - key: BRAVE_API_KEY
+        sync: false
